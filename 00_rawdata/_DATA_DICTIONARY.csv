@@ -1,0 +1,6 @@
+Variable,Variable_name,Units,Allowed_value,Description
+Particle ID,Particle.ID,numeric,1-15984,Particle ID number assigned in sequential order
+Area by diameter,Area..ABD.,numeric,0-1000,Calculated area of particle based on a circle with the measured diameter
+Area filled,Area..Filled.,numeric,0-1000,Calculated area of particle based on a circle with equal amount of pixels filled
+Capture X axis,Capture.X,numeric,0-1100,Capture location of particle along the x axis
+Capture Y axis,Capture.Y,numeric,0-2000,Capture location of particle along the y axis
