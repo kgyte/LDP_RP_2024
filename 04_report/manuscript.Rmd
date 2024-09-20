@@ -1,0 +1,27 @@
+---
+title: "LDP_manuscript"
+author: "Katherine Gyte"
+date: "2024-09-15"
+output: pdf_document
+bibliography: references.bib
+---
+
+```{r setup, include = FALSE, echo = FALSE}
+library(tidyverse)
+library(here)
+library(renv)
+library(grateful)
+library(trackdown)
+```
+
+Microalgae form colonies in response to predator grazing, but they also form larger aggregates in response to prolonged or more severe environmental stressors [@lürling2003]. @roccuzzo2020 found that the aggregation behaviour of microalgae requires an investment in fatty acid metabolism.
+
+My experiment, in which laboratory cultures of *Tetradesmus obliquus* were exposed to varying concentrations of microplastics, showed that the size of algal aggregates increases with microplastic concentration (Fig. 1), in addition to the increasing proportion of aggregates in the population.
+
+![](03_figures/nod1.agg.area.png)
+
+Figure 1. Size of microalgal aggregates across microplastic treatment groups.
+
+```{r, echo = TRUE}
+grateful::cite_packages(output = "paragraph", out.dir = ".")
+```
