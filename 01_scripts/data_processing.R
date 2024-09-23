@@ -68,8 +68,12 @@ D1_ag_count <- calculate_ag_count_by_treatment(ag_D1_full)
 new_labels <- c("cn" = "Control", "cntw" = "Control + Tween", "low" = "Low MP", "med" = "Medium MP", "high" = "High MP")
 
 #plot of aggregate count on day 1 by treatment
-ggplot(D1_ag_count, aes(x=Treatment, y=total_aggregates, fill = Treatment)) +
+D1_agcount <- ggplot(D1_ag_count, aes(x=Treatment, y=total_aggregates, fill = Treatment)) +
   geom_col() +
   theme_minimal()+
   scale_fill_manual(values = c("Control" = "lightgrey", "Control + Tween" = "darkgrey", "Low" = "lightblue", "Medium" = "deepskyblue", "High" = "blue"), labels = new_labels) +
   labs(title = "Aggregate count by treatment", y = "Number of aggregates per replicate")
+
+#save plot as .png in figures folder
+ggsave(filename = "03_figures/D1_agcount.png", plot = D1_agcount, device = "png")
+
