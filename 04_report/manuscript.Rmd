@@ -16,11 +16,48 @@ library(trackdown)
 
 Microalgae form colonies in response to predator grazing, but they also form larger aggregates in response to prolonged or more severe environmental stressors [@lürling2003]. @roccuzzo2020 found that the aggregation behaviour of microalgae requires an investment in fatty acid metabolism.
 
-My experiment, in which laboratory cultures of *Tetradesmus obliquus* were exposed to varying concentrations of microplastics, showed that the size of algal aggregates increases with microplastic concentration (Fig. 1), in addition to the increasing proportion of aggregates in the population.
+**Methods**
+
+*Experimental setup*
+
+Cultures of *Tetradesmus obliquus* in COMBO media (CPCC 5, Canadian Phycological Culture Centre, University of Waterloo, Canada) were exposed to three different experimental concentrations of microplastics (MP): “low” (100MP/mL; 4mg/L, n=4), “medium” (1,000MP/mL; 40mg/L, n=4), and “high” (10,000MP/mL; 400mg/L, n=4). Treatment cultures were assembled in 50mL Falcon Tubes containing approximately 4 million algal cells and with 0.004% Tween20. Experimental treatments were incubated at 24ºC under a 12:12 light:dark cycle for 15 days. Samples for analysis were collected on Day 1, Day 12, and Day 15.
+
+*Data collection*
+
+On days 1, 12, and 15 of the experiment, samples from each biological replicate (n=4) were taken and the number and size of algal aggregates were measured using a FlowCam 8400 machine with the corresponding VisualSpreadsheet software (Version 6, Fluid Imaging Technologies). A 100um FlowCell and a 10x objective lens were used, while the FlowCam context settings were set to 0.1mL/min flow rate (approx. 50% efficiency) with 4um minimum threshold particle size for imaging. 
+
+*Aggregation behaviour analysis*
+
+Changes in aggregation behaviour were measured based on the proportion of algal aggregates in the total population. To differentiate single algal cells from stacked algal colonies and from algal aggregates, the FlowCam imaging data was sorted by convex perimeter which was visually ascertained to be the parameter that best separated cells, stacks, and aggregates. To further sort the aggregates from the rest of the data, a threshold convex perimeter of 80um was chosen, again based on visual analysis of the imaging data. The total number of images collected by the FlowCam correspond to the total cell count of the sample, and the number of images above the 80um convex perimeter threshold correspond to the number of aggregates present in the sample.
+
+To standardise differences in total cell count between samples, the proportion of algal aggregates (calculated by dividing the number of aggregates by the total cell count for each sample) was compared across treatments. Data collected on days 12 and 15 were also normalised to day 1 counts. A linear mixed effects model (Proportion aggregate ~ Treatment + (1|Replicate)) was run to determine any statistical differences across microplastic treatments. 
+
+**Results**
+
+*Algal aggregation behaviour*
+
+Changes in *T. obliquus* aggregation behaviour were measured across microplastic concentrations by calculating the mean proportion of aggregates in algal cultures across treatments. Importantly, the presence of the Tween20 surfactant alone did not have an effect on the proportion aggregate compared to the control without the Tween20 surfactant added (ANOVA, p > 0.05) (Fig. 1). 
+
+Interestingly, samples collected on Day 1 of the experiment (hours after adding the microplastics to algal cultures) showed a rapid and dose dependent response to the microplastic treatments (Fig. 1). 
+
+```{r, echo=T}
+
+#plot of aggregate count on day 1 by treatment
+ggplot(D1_ag_count, aes(x=Treatment, y=total_aggregates, fill = Treatment)) +
+  geom_col() +
+  theme_minimal()+
+  scale_fill_manual(values = c("Control" = "lightgrey", "Control + Tween" = "darkgrey", "Low" = "lightblue", "Medium" = "deepskyblue", "High" = "blue"), labels = new_labels) +
+  labs(title = "Aggregate count by treatment", y = "Number of aggregates per replicate")
+```
+![](03_figures/D1_agcount.png)
+Figure 1. Bar plot showing the number of algal aggregates across microplastic treatments. 
+
+*Algal aggregate size*
+
+In addition to increasing the number of aggregates, exposure to higher concentrations of microplastics also increased the size of the algal aggregates in culture. Based on the FlowCam imaging data, the area of particles captured could be measured to provide information on changes to aggregate size across treatments. We found that aggregate area increased with microplastic concentration (Fig. 2).
 
 ![](03_figures/nod1.agg.area.png)
-
-Figure 1. Size of microalgal aggregates across microplastic treatment groups.
+Figure 2. Area of microalgal aggregates across microplastic treatment groups.
 
 ```{r, echo = TRUE}
 grateful::cite_packages(output = "paragraph", out.dir = ".")
