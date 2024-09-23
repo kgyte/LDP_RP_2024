@@ -1,6 +1,7 @@
 #Acquire data from existing local folder, merge csvs, and save that to raw data folder in LDP folder
 
 library(dplyr)
+library(tidyr)
 
 # List all CSV files in the D1_filteredcsv folder
 D1_files <- list.files(path = "/Users/katie/Documents/Tseng Lab/MP Directed Studies/D1_filteredcsv", pattern = "\\.csv$", full.names = TRUE)
@@ -31,30 +32,24 @@ add_filename_columns <- function(df) {
 #apply add filename function
 D1data <- add_filename_columns(D1data)
 
-####ERRORS HERE#### 
 #move columns to the front & rename treatment groups
 D1data <- relocate(D1data, c("Day", "Treatment", "Tube", "Replicate"), .before = "Particle.ID") %>% 
   mutate(Treatment = factor(Treatment, levels = c("cn", "cntw", "low", "med", "high"))) %>%
   arrange(Treatment)
 
 #rename treatment groups
-levels(Treatment) <- c("cn" = "Control",
-                       "cntw" = "Control + Tween",
-                       "low" = "Low",
-                       "med" = "Medium",
-                       "high" = "High")
-
-
-#reorder treatment groups so "high" is last
-D1data <- D1data %>%
-  mutate(Treatment = factor(Treatment, levels = c("cn", "cntw", "low", "med", "high"))) %>%
-  arrange(Treatment)
+RENAME <- c(cn="Control",cntw="Control + Tween",low="Low", med="Medium",high="High")
+D1data[,"Treatment"] <- RENAME[D1data[,"Treatment"]]
 
 ##filter to only one biological replicate per treatment (tube #1) to make csv file small enough for github! 
 D1data_tube1 <- D1data %>% 
-  group_by()
-  filter()
+  group_by(Day, Treatment, Tube) %>% 
+  filter(Tube==1)
 
+##further filter to only replicate 1 to make file smaller than 100MB for GitHub
+D1data_tube1 <- D1data_tube1 %>% 
+  group_by(Day, Treatment, Tube, Replicate) %>% 
+  filter(Replicate==1)
 
 #save this csv file to LDP rawdata folder
-write.csv(full_D1_data, file = "00_rawdata/D1data.csv", row.names = FALSE)
+write.csv(D1data_tube1, file = "00_rawdata/D1data_tube1.csv", row.names = FALSE)
