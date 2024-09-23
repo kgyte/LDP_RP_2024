@@ -2,15 +2,16 @@
 
 #load libraries
 library(tidyr)
+library(dplyr)
 library(ggplot2)
 
 #read in rawdata file
-D1data <- read.csv("00_rawdata/D1data.csv")
+D1data <- read.csv("00_rawdata/D1data_tube1.csv")
 
 ####Only import select columns from raw data file####
 #Define your columns_to_import function
 columns_to_import <- function(df) {
-  selected_columns <- df[, c("filename", "Particle.ID", "Convex.Perimeter", "Diameter..ABD.", "Area..ABD.", "Biovolume..Cylinder.", "Biovolume..P..Spheroid.", "Biovolume..Sphere.",
+  selected_columns <- df[, c("Day", "Treatment", "Tube", "Replicate", "Particle.ID", "Convex.Perimeter", "Diameter..ABD.", "Area..ABD.", "Biovolume..Cylinder.", "Biovolume..P..Spheroid.", "Biovolume..Sphere.",
                              "Volume..ABD.", "Date", "Image.File")] 
   return(selected_columns)
 } 
@@ -41,10 +42,13 @@ calculate_summary_statistics <- function(df) {
 #apply function to full data df to get summary stats by replicate
 D1data_summary <- calculate_summary_statistics(D1data_filt)
 
+
 ####Filtering aggregate data####
 
 #filter day one's data to include only particles with >80 convex perimeter 
-ag_D1_full <- filter(D1data_filt, Convex.Perimeter >= 80)
+ag_D1_full <- filter(D1data_filt, Convex.Perimeter >= 80) %>% 
+  mutate(Treatment = factor(Treatment, levels = c("Control", "Control + Tween", "Low", "Medium", "High"))) %>%
+  arrange(Treatment)
 
 # Function to calculate total number of aggregates
 calculate_ag_count_by_treatment <- function(df) {
@@ -65,8 +69,7 @@ new_labels <- c("cn" = "Control", "cntw" = "Control + Tween", "low" = "Low MP", 
 
 #plot of aggregate count on day 1 by treatment
 ggplot(D1_ag_count, aes(x=Treatment, y=total_aggregates, fill = Treatment)) +
-  geom_boxplot(outliers = F) +
-  geom_jitter(shape = 21, size = 1.5, colour = "black", alpha = 0.5) +
+  geom_col() +
   theme_minimal()+
-  scale_fill_manual(values = c("cn" = "white", "cntw" = "darkgrey", "low" = "lightblue", "med" = "deepskyblue", "high" = "blue"), labels = new_labels) +
+  scale_fill_manual(values = c("Control" = "lightgrey", "Control + Tween" = "darkgrey", "Low" = "lightblue", "Medium" = "deepskyblue", "High" = "blue"), labels = new_labels) +
   labs(title = "Aggregate count by treatment", y = "Number of aggregates per replicate")
