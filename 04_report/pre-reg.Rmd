@@ -1,0 +1,81 @@
+---
+title           : "My preregistration for Tetradesmus lipids MSc project"
+shorttitle      : "My preregistration"
+date            : "`r Sys.setlocale('LC_TIME', 'C'); format(Sys.time(), '%d\\\\. %B %Y')`"
+
+author: 
+  - name        : Katherine Gyte
+    affiliation : 1
+  - name        : Michelle Tseng
+    affiliation : 1
+
+affiliation:
+  - id          : 1
+    institution : University of British Columbia
+
+output: prereg::prereg_pdf
+---
+
+<!-- To keep pre-registrations to a reasonable length for readers, we recommend answers fit within a single page .pdf document, roughly 3200 characters. Read more about this here: https://aspredicted.org/messages/why_limits.php -->
+
+
+## Data collection
+<!-- Have any data been collected for this study already? (Note: "Yes" is not an accepted answer.) -->
+
+**No**, no data have been collected for this study yet.
+
+
+## Hypothesis
+<!-- What's the main question being asked or hypothesis being tested in this study? -->
+
+The fatty acid profile of *Tetradesmus obliquus* will consist of fewer polyunsaturated fatty acids and more saturated fatty acids upon exposure to both heat waves and microplastic pollution.
+
+
+## Dependent variable
+<!-- Describe the key dependent variable(s) specifying how they will be measured. -->
+
+The concentration of known fatty acids in *Tetradesmus obliquus* before and after exposure to a heat wave and microplastic pollution.
+
+
+## Conditions
+<!-- How many and which conditions will participants be assigned to? -->
+
+There will be six conditions in total. Temperature treatments will be one of constant ambient (20c), constant warming (24c) or a heat wave event (up to 32c for 3 days). Microplastic treatments will either have zero microplastics or 1000 particles per mL. The study is factorial, so 6 conditions total with 4 biological replicates each.
+
+
+## Analyses
+<!-- Specify exactly which analyses you will conduct to examine the main question/hypothesis. -->
+
+A linear mixed effects model will be used to determine if the concentration of any fatty acid changes significantly after exposure to increased temperature or microplastics.
+
+
+## Outliers and exclusions
+<!-- Describe exactly how outliers will be defined and handled, and your precise rule(s) for excluding observations. -->
+
+We will calculated the median and IQR across all treatments and plot boxplots using this data. Outliers as shown on these plots will be excluded.
+
+
+## Sample size
+<!-- How many observations will be collected or what will determine sample size? No need to justify decision, but be precise about _exactly_ how the number will be determined. -->
+
+Due to the highly precise nature of HPLC-MS/MS, one sample per replicate for all treatment groups will be measured. 
+
+
+## Other
+<!-- Anything else you would like to pre-register? (e.g., secondary analyses, variables collected for exploratory purposes, unusual analyses planned?) -->
+
+We will also collect data on the concentrations of lipid classes present in each sample, including which fatty acids are in them. This data will be explored for potential further analysis.
+
+## Study type
+Finally. For record keeping purposes, please tell us the type of study you are pre-registering.
+
+* Experiment
+
+
+# References
+## 
+\vspace{-2pc}
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{-1in}
+\setlength{\parskip}{8pt}
+\noindent
