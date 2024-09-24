@@ -3,7 +3,9 @@ title: "LDP_manuscript"
 author: "Katherine Gyte"
 date: "2024-09-15"
 output: pdf_document
-bibliography: references.bib
+bibliography: 
+      - references.bib
+      - grateful-refs.bib
 ---
 
 ```{r setup, include = FALSE, echo = FALSE}
@@ -40,23 +42,14 @@ Changes in *T. obliquus* aggregation behaviour were measured across microplastic
 
 Interestingly, samples collected on Day 1 of the experiment (hours after adding the microplastics to algal cultures) showed a rapid and dose dependent response to the microplastic treatments (Fig. 1). 
 
-```{r, echo=T}
-
-#plot of aggregate count on day 1 by treatment
-ggplot(D1_ag_count, aes(x=Treatment, y=total_aggregates, fill = Treatment)) +
-  geom_col() +
-  theme_minimal()+
-  scale_fill_manual(values = c("Control" = "lightgrey", "Control + Tween" = "darkgrey", "Low" = "lightblue", "Medium" = "deepskyblue", "High" = "blue"), labels = new_labels) +
-  labs(title = "Aggregate count by treatment", y = "Number of aggregates per replicate")
-```
-![](03_figures/D1_agcount.png)
+![](../03_figures/D1_agcount.png)
 Figure 1. Bar plot showing the number of algal aggregates across microplastic treatments. 
 
 *Algal aggregate size*
 
 In addition to increasing the number of aggregates, exposure to higher concentrations of microplastics also increased the size of the algal aggregates in culture. Based on the FlowCam imaging data, the area of particles captured could be measured to provide information on changes to aggregate size across treatments. We found that aggregate area increased with microplastic concentration (Fig. 2).
 
-![](03_figures/nod1.agg.area.png)
+![](../03_figures/nod1.agg.area.png)
 Figure 2. Area of microalgal aggregates across microplastic treatment groups.
 
 ```{r, echo = TRUE}
