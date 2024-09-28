@@ -1,0 +1,31 @@
+---
+title: "_README"
+author: "Katherine Gyte"
+date: "2024-09-28"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Project title**
+
+Long-form: Algal aggregation with microplastics 
+Short-form: AggMP
+
+**Project abstract**
+
+Global plastic pollution is a major source of concern as microplastics have been detected in environments globally. The research and monitoring of aquatic plastic pollution in particular has confirmed the wide distribution of microplastics throughout ecosystems, but the ecological implications of microplastic pollution in aquatic ecosystems remain largely unknown. Freshwater microalgae are essential primary producers and previous studies have shown that they are sensitive to microplastic pollution. Microplastics in freshwater environments have been found to negatively affect microalgal growth and photosynthetic efficiency, while also causing physical changes in microalgal colonies through self-flocculation and adsorption to the plastic particles. Increased aggregation promotes the sinking of algal biomass and consequently, the removal of a key food source for primary consumers. Furthermore, the ingestion of contaminated algal biomass likely increases microplastic accumulation in higher trophic levels, suggesting the impact of microplastic pollution on algae alone could be felt throughout aquatic food webs. Here, we incubated a freshwater green alga, *Tetradesmus obliquus*, with varying concentrations of polystyrene microspheres, and measured homo-aggregation using an imaging flow cytometer. We observed a significant increase in the proportion of algal aggregates in the presence of microplastics and a significant positive correlation between algal aggregate size and microplastic concentration, though microplastic exposure did not significantly affect population growth rates. Our results indicate that microplastic pollution stimulates aggregation in T. obliquus, which has numerous potential consequences for the productivity of contaminated aquatic ecosystems.
+
+**File directory**
+The AggMP project directory includes folders corresponding to each part of the research process. The following information describes the type of content logically proscribed to each folder.
+
+00_rawdata: untouched raw data files (.csv format) with a data dictionary and secondary README               file for optimal data reproducibility.
+01_scripts: RStudio R scripts used for saving rawdata files and for data processing.
+02_outdata: processed data files (.csv format) using the data processing R script found in the               01_scripts folder and a corresponding data dictionary.
+03_figures: figures (.png format) generated from the data processing R script found in the                   01_scripts folder.
+04_report: RMarkdown and corresponding rendered PDF documents of the project pre-registration and            final manuscript with .bib files for literature and R package references.
+
+
+

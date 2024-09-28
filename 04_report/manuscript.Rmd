@@ -1,5 +1,5 @@
 ---
-title: "LDP_manuscript"
+title: "Microplastics impact the aggregation behaviour of the freshwater green alga *Tetradesmus obliquus*"
 author: "Katherine Gyte"
 date: "2024-09-15"
 output: pdf_document
