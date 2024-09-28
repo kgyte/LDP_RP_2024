@@ -6,16 +6,15 @@ output: pdf_document
 ---
 
 **Project title**
+
 Algal aggregation with microplastics
 
 **Rawdata collection**
+
 The raw data found in this folder (00_rawdata) was collected as part of a larger dataset. I have uploaded just a subsection of this dataset due to the large file sizes which exceeded the storage capacity of GitHub.
 
-Liquid monocultures of *Tetradesmus obliquus* microalgae were exposed to varying microplastic (MP) concentrations and the proportion of single cells, stacked colonies, or aggregates was determined. Samples were collected on day 1, 12, and 15 of the experiment using an imaging flow cytometer (FlowCam 8000, Fluid Imaging Technologies). 
+Liquid monocultures of *Tetradesmus obliquus* microalgae were exposed to varying microplastic (MP) concentrations and the proportion of single cells, stacked colonies, or aggregates was determined. Samples were collected on day 1, 12, and 15 of the experiment using an imaging flow cytometer (FlowCam 8000, Fluid Imaging Technologies).
 
 The data contained in the file D1data_tube1 was collected on Day 1 of the experiment after 8 hours of incubation. Again, this dataset has been intentionally reduced to save storage space and enable sharing of the data files for the Living Data Project. To this end, the D1data_tube1 file contains particle measurements taken by the FlowCam from 1 biological and technical replicate across all 5 treatment groups (control (no MP), control + Tween (no MP, but with non-ionic surfactant Tween20), low MP (1000MP/mL), medium MP (10,000MP/mL), and high MP (100,000MP/mL)). This datafile has 81375 rows and 79 columns.
 
 Please refer to the data dictionary in this same folder for descriptions of variables found in this dataset.
-
-
-
