@@ -5,6 +5,9 @@ library(tidyr)
 library(dplyr)
 library(ggplot2)
 
+#set working directory
+setwd("/Users/katie/Documents/Living Data Project/LDP_RP/LDP_RP_2024")
+
 #read in rawdata file
 D1data <- read.csv("00_rawdata/D1data_tube1.csv")
 

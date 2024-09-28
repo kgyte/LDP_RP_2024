@@ -1,7 +1,11 @@
 #Acquire data from existing local folder, merge csvs, and save that to raw data folder in LDP folder
 
+#load libraries
 library(dplyr)
 library(tidyr)
+
+#set working directory
+setwd("/Users/katie/Documents/Living Data Project/LDP_RP/LDP_RP_2024")
 
 # List all CSV files in the D1_filteredcsv folder
 D1_files <- list.files(path = "/Users/katie/Documents/Tseng Lab/MP Directed Studies/D1_filteredcsv", pattern = "\\.csv$", full.names = TRUE)
