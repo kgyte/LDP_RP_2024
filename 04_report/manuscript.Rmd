@@ -69,6 +69,7 @@ ggplot(aggcounts, aes(x=Treatment, y=total_aggregates, fill = Treatment)) +
   scale_fill_manual(values = c("Control" = "lightgrey", "Control + Tween" = "darkgrey", "Low" = "lightblue", "Medium" = "deepskyblue", "High" = "blue"), labels = new_labels) +
   labs(title = "Aggregate count by treatment", y = "Number of aggregates per replicate")
 ```
+
 Figure 1. Bar plot showing the number of algal aggregates across microplastic treatments on day 1 of the experiment.
 
 *Algal aggregate size*
