@@ -50,7 +50,7 @@ To standardise differences in total cell count between samples, the proportion o
 
 Changes in *T. obliquus* aggregation behaviour were measured across microplastic concentrations by calculating the mean proportion of aggregates in algal cultures across treatments. Importantly, the presence of the Tween20 surfactant alone did not have an effect on the proportion aggregate compared to the control without the Tween20 surfactant added (ANOVA, p \> 0.05) (Fig. 1).
 
-Interestingly, samples collected on Day 1 of the experiment (hours after adding the microplastics to algal cultures) showed a rapid and dose dependent response to the microplastic treatments (Fig. 1).
+Interestingly, samples collected on Day 1 of the experiment (8 hours after adding the microplastics to algal cultures) showed a rapid and dose dependent response to the microplastic treatments (Fig. 1).
 
 ![](../03_figures/D1_agcount.png) Figure 1. Bar plot showing the number of algal aggregates across microplastic treatments on day 1 of the experiment.
 
