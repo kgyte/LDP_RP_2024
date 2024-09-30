@@ -14,6 +14,9 @@ library(here)
 library(renv)
 library(grateful)
 library(trackdown)
+library(ggplot2)
+
+setwd("/Users/katie/Documents/Living Data Project/LDP_RP/LDP_RP_2024")
 ```
 
 **INTRODUCTION**
@@ -25,7 +28,6 @@ Microplastic pollution in aquatic environments has been shown to have ecotoxicol
 Some species of phytoplankton form colonies of 2 to 8 cells stacked together in response to environmental stressors such as predator grazing, but they also form larger colonies called aggregates in response to prolonged or more severe environmental stressors [@lürling2003]. In the presence of microplastics, some species of phytoplankton have been observed to form aggregates. This is thought to be a potential defense mechanism whereby algae increase their size to reduce the available surface area that can interact with MP [@guo2024]. Due to their increased biomass, aggregates have a faster sinking rate compared to smaller colonies or individual algae cells [@long2015]. This exacerbates the removal of phytoplankton from the upper water column (the euphotic zone) which may decrease photosynthetic activity and reduce food availability for consumers, thereby potentially having significant consequences for ecosystem productivity. [@parrella2024] showed that heteroaggregates comprised of algal cells and microplastics have a faster sinking rate than homoaggregates comprised of only algal cells. This suggests another avenue through which microplastic pollution may alter aquatic ecosystem dynamics.
 
 The published literature on this topic has mainly focused on verifying the presence or absence of aggregates with microscopy techniques, while overlooking the need to quantify the changes in algal aggregation behaviour upon exposure to microplastics. This research project aimed to characterise the impact of microplastic pollution on the aggregation of phytoplankton under experimental conditions, using the freshwater green alga *Tetradesmus obliquus* as a representative species.
-
 
 **MATERIALS AND METHODS**
 
@@ -43,16 +45,31 @@ Changes in aggregation behaviour were measured based on the proportion of algal 
 
 To standardise differences in total cell count between samples, the proportion of algal aggregates (calculated by dividing the number of aggregates by the total cell count for each sample) was compared across treatments. Data collected on days 12 and 15 were also normalised to day 1 counts. A linear mixed effects model (Proportion aggregate \~ Treatment + (1\|Replicate)) was run to determine any statistical differences across microplastic treatments.
 
-
 **RESULTS**
 
 *Algal aggregation behaviour*
 
-Changes in *T. obliquus* aggregation behaviour were measured across microplastic concentrations by calculating the mean proportion of aggregates in algal cultures across treatments. Importantly, the presence of the Tween20 surfactant alone did not have an effect on the proportion aggregate compared to the control without the Tween20 surfactant added (ANOVA, p \> 0.05) (Fig. 1).
+Changes in *T. obliquus* aggregation behaviour were measured across microplastic concentrations by calculating the mean proportion of aggregates in algal cultures across treatments. Importantly, the presence of the Tween20 surfactant alone did not have an effect on the proportion aggregate compared to the control without the Tween20 surfactant added (Fig. 1).
 
 Interestingly, samples collected on Day 1 of the experiment (8 hours after adding the microplastics to algal cultures) showed a rapid and dose dependent response to the microplastic treatments (Fig. 1).
 
-![](../03_figures/D1_agcount.png) Figure 1. Bar plot showing the number of algal aggregates across microplastic treatments on day 1 of the experiment.
+```{r, include=TRUE, echo=FALSE}
+aggcounts <- read.csv("02_outdata/D1data_aggcounts.csv")
+
+#rearrange treatment groups
+aggcounts <- aggcounts %>% 
+  mutate(Treatment = factor(Treatment, levels = c("Control", "Control + Tween", "Low", "Medium", "High"))) %>%
+  arrange(Treatment)
+
+new_labels <- c("cn"="Control", "cntw" = "Control + Tween", "low" = "Low MP", "med" = "Medium MP", "high" = "High MP")
+
+ggplot(aggcounts, aes(x=Treatment, y=total_aggregates, fill = Treatment)) +
+  geom_col() +
+  theme_minimal()+
+  scale_fill_manual(values = c("Control" = "lightgrey", "Control + Tween" = "darkgrey", "Low" = "lightblue", "Medium" = "deepskyblue", "High" = "blue"), labels = new_labels) +
+  labs(title = "Aggregate count by treatment", y = "Number of aggregates per replicate")
+```
+Figure 1. Bar plot showing the number of algal aggregates across microplastic treatments on day 1 of the experiment.
 
 *Algal aggregate size*
 
