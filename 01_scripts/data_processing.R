@@ -46,7 +46,7 @@ calculate_summary_statistics <- function(df) {
 D1data_summary <- calculate_summary_statistics(D1data_filt)
 
 #save csv file of day 1 summary statistics
-write_csv(D1data_summary, file = "02_outdata/D1data_summarystats.csv")
+write.csv(D1data_summary, file = "02_outdata/D1data_summarystats.csv")
 
 ####Filtering aggregate data####
 
