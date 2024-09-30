@@ -45,6 +45,8 @@ calculate_summary_statistics <- function(df) {
 #apply function to full data df to get summary stats by replicate
 D1data_summary <- calculate_summary_statistics(D1data_filt)
 
+#save csv file of day 1 summary statistics
+write_csv(D1data_summary, file = "02_outdata/D1data_summarystats.csv")
 
 ####Filtering aggregate data####
 
@@ -66,6 +68,9 @@ calculate_ag_count_by_treatment <- function(df) {
 
 #calculate aggregate count
 D1_ag_count <- calculate_ag_count_by_treatment(ag_D1_full)
+
+#write csv for day 1 aggregate counts
+write.csv(D1_ag_count, file = "02_outdata/D1data_aggcounts.csv")
 
 #define new Treatment labels for graphs
 new_labels <- c("cn" = "Control", "cntw" = "Control + Tween", "low" = "Low MP", "med" = "Medium MP", "high" = "High MP")
