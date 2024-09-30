@@ -6,6 +6,7 @@ output: pdf_document
 bibliography: 
       - references.bib
       - grateful-refs.bib
+csl: "https://raw.githubusercontent.com/citation-style-language/styles/master/ecology-letters.csl"
 ---
 
 ```{r setup, include = FALSE, echo = FALSE}
